@@ -15,5 +15,5 @@ public partial class Vacancy
 
     public string City { get; set; } = null!;
 
-    public bool? IsActive { get; set; }
+    public bool IsActive { get; set; }
 }

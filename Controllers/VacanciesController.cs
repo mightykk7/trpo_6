@@ -48,7 +48,7 @@ namespace pract6.Controllers
             return NoContent();
         }
         [HttpPatch("{id:int}")]
-        public IActionResult Patch([FromRoute]int id, [FromBody] Vacancy patchvacancy)
+        public IActionResult Patch([FromRoute]int id, [FromBody] PatchVacancy patchvacancy)
         {
 
             var vacancy = _context.Vacancies.Find(id);
@@ -63,7 +63,7 @@ namespace pract6.Controllers
             if (patchvacancy.City != null)
                 vacancy.City = patchvacancy.City;
             if (patchvacancy.IsActive.HasValue)
-                vacancy.IsActive = patchvacancy.IsActive;
+                vacancy.IsActive = Convert.ToBoolean(patchvacancy.IsActive);
             _context.SaveChanges();
             return Ok();
         }
